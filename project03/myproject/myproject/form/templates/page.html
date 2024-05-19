@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Card</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="card">
+        <div class="card-body">
+            <ul class="nav nav-tabs">
+                {% for object in nav_objects %}
+                    <li class="nav-item">
+                        <a class="{% if pk == object.id %}nav-link active{% else %}nav-link{% endif %}"
+                           href="{% url 'app2:page' pk=object.item_nav_position %}">{{ object.item_nav }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title text-center">{% autoescape off %}{{ content_object.item_title }}{% endautoescape %}</h5>
+            {% autoescape off %}{{ content_object.item_content }}{% endautoescape %}
+        </div>
+    </div>
+</body>
+</html>

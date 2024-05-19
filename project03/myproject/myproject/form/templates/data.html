@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Данные</h1>
+<table class="info-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Content</th>
+            <th>Time Created</th>
+            <th>Seat</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in info %}
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.surname }}</td>
+            <td>{{ task.content }}</td>
+            <td>{{ task.time_create }}</td>
+            <td>{{ task.seat }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

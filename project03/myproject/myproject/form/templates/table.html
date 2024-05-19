@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h6 class="my-3 text-secondary">Таблица по-умолчанию</h6>
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            {% for name in name_list %}
+                <th>{{ name }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in objects_values %}
+            <tr>
+                {% for key, value in object.items %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h6 class="my-3 text-secondary">Таблица после фильтрации и сортировки</h6>
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            {% for name in name_list %}
+                <th>{{ name }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in objects_values_list %}
+            <tr>
+                {% for item in object %}
+                    <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h6 class="my-3 text-secondary">Статистика после фильтрации и сортировки</h6>
+<div class="card">
+    <div class="card-body">
+        {% for stat in statics.statics_val %}
+            {% for key, value in stat.items %}
+                <p class="card-text"><strong>{{ key }}:</strong> {{ value }}</p>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+

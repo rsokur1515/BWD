@@ -1,0 +1,44 @@
+
+
+{% extends 'base.html' %}
+
+{% block content%}
+    <div class="container">
+        <h1 class="main-title">Об авторе</h1>
+        <div class="author-info">
+            <h2>Информация обо мне</h2>
+            <ul class="info-list">
+                <li>Моё имя: {{my.name}}</li>
+                <li>email: {{my.mail}}</li>
+                <li>Телефон: {{my.phone}}</li>
+                <li><img src={{my.imgurl}} class="profile-image"></li>
+            </ul>
+        </div>
+        <div class="program-info">
+            <h2>Информация об ОП</h2>
+            <ul class="info-list">
+                <li>Название ОП: {{program.name}}</li>
+                <li>Описание ОП: {{program.description}}</li>
+                <li>Руководитель ОП: {{program.ruk.name}}</li>
+                <li>email: {{program.ruk.mail}}</li>
+                <li><img src={{program.ruk.imgurl}} class="profile-image"></li>
+                <li>Менеджер ОП: {{program.man.name}}</li>
+                <li>email: {{program.man.mail}}</li>
+                <li><img src={{program.man.imgurl}} class="profile-image"></li>
+            </ul>
+        </div>
+        <div class="friends-info">
+            <h2>Информация о сокурсниках</h2>
+            <ul class="info-list">
+                <li>Сокурсник 1: {{pal1.name}}</li>
+                <li>email: {{pal1.mail}}</li>
+                <li>Телефон: {{pal1.phone}}</li>
+                <li><img src={{pal1.imgurl}} class="profile-image"></li>
+                <li>Сокурсник 2: {{pal2.name}}</li>
+                <li>email: {{pal2.mail}}</li>
+                <li>Телефон: {{pal2.phone}}</li>
+                <li><img src={{pal2.imgurl}} class="profile-image"></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

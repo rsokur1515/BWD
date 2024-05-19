@@ -1,0 +1,23 @@
+{% load static%}
+<header>
+  <nav class="navbar navbar-light" style="background-color: lightgrey">
+      <div class="container">
+        {% with request.resolver_match.view_name as view_name %}
+        <ul class="nav nav-pills">
+          <li class="nav-item"> 
+            <a class="nav-link {% if view_name  == 'form:main' %}link-light active{% else %}text-dark{% endif %}" href="{% url 'form:main' %}">Главная страница</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link {% if view_name  == 'form:form' %}link-light active{% else %}text-dark{% endif %}" href="{% url 'form:form' %}">Форма</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link {% if view_name  == 'form:data' %}link-light active{% else %}text-dark{% endif %}" href="{% url 'form:data' %}">Данные</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link {% if view_name  == 'form:table' %}link-light active{% else %}text-dark{% endif %}" href="{% url 'form:table' %}">Таблица</a>
+          </li>
+        </ul>
+        {% endwith %}
+      </div>
+  </nav>  
+</header>
